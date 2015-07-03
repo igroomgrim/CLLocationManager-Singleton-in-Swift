@@ -5,6 +5,7 @@ This class will auto update location when user change current location.
 
 ## Requirements
 * Xcode 6 or higher
+* Swift 1.2
 * Apple LLVM compiler
 * iOS 6.0 or higher
 * ARC
