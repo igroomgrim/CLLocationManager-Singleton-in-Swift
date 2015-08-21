@@ -25,8 +25,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     
     var locationManager:CLLocationManager?
     var currentLocation:CLLocation?
-    var driver_id:String?
-    
+
     override init() {
         super.init()
         self.locationManager = CLLocationManager()
