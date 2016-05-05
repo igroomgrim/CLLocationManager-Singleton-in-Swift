@@ -27,11 +27,11 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         }
         return Static.instance!
     }
-    
+
     var locationManager: CLLocationManager?
     var lastLocation: CLLocation?
     var delegate: LocationServiceDelegate?
-    
+
     override init() {
         super.init()
 
