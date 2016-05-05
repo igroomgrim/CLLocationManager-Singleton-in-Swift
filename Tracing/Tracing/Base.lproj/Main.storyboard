@@ -15,11 +15,83 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4k-Wr-w5T">
+                                <rect key="frame" x="20" y="536" width="46" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="9pw-eu-Ro6"/>
+                                    <constraint firstAttribute="width" constant="46" id="llW-jc-q8e"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="K3O-bE-bi3"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mje-La-0OI">
+                                <rect key="frame" x="534" y="536" width="46" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="SGZ-GX-Ulz"/>
+                                    <constraint firstAttribute="height" constant="44" id="mfN-ie-FpN"/>
+                                </constraints>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gaS-5s-YZ0"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="location update" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fH-1B-xAo">
+                                <rect key="frame" x="20" y="289" width="560" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="DIa-xv-RCH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lat : 0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoh-k7-tD9">
+                                <rect key="frame" x="20" y="319" width="560" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="fmG-RN-c4S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lon : 0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Als-hx-6JQ">
+                                <rect key="frame" x="20" y="349" width="560" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="GUn-Cj-Fcw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mje-La-0OI" secondAttribute="trailing" constant="20" id="FfI-gZ-YId"/>
+                            <constraint firstItem="9fH-1B-xAo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="NAr-dF-IJ1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="W4k-Wr-w5T" secondAttribute="bottom" constant="20" id="Nx9-Zy-eRt"/>
+                            <constraint firstItem="9fH-1B-xAo" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="RDR-Md-32C"/>
+                            <constraint firstItem="xoh-k7-tD9" firstAttribute="top" secondItem="9fH-1B-xAo" secondAttribute="bottom" constant="8" id="RGV-Su-IMD"/>
+                            <constraint firstAttribute="trailing" secondItem="Als-hx-6JQ" secondAttribute="trailing" constant="20" id="UHE-g1-62r"/>
+                            <constraint firstItem="W4k-Wr-w5T" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="i7B-KW-WFe"/>
+                            <constraint firstItem="Als-hx-6JQ" firstAttribute="top" secondItem="xoh-k7-tD9" secondAttribute="bottom" constant="8" id="kF8-Lc-CmS"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="mje-La-0OI" secondAttribute="bottom" constant="20" id="mtY-tC-YNG"/>
+                            <constraint firstAttribute="trailing" secondItem="xoh-k7-tD9" secondAttribute="trailing" constant="20" id="nn6-ci-agy"/>
+                            <constraint firstItem="xoh-k7-tD9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="vzU-q8-eoq"/>
+                            <constraint firstItem="Als-hx-6JQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="w03-nk-Iji"/>
+                            <constraint firstAttribute="trailing" secondItem="9fH-1B-xAo" secondAttribute="trailing" constant="20" id="x2J-I7-jHi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="latLabel" destination="xoh-k7-tD9" id="ePi-vE-hYB"/>
+                        <outlet property="locationLabel" destination="9fH-1B-xAo" id="kwo-rX-XN1"/>
+                        <outlet property="lonLabel" destination="Als-hx-6JQ" id="KKo-6X-S0k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="563" y="479"/>
         </scene>
     </scenes>
 </document>
