@@ -10,23 +10,15 @@ import Foundation
 import CoreLocation
 
 protocol LocationServiceDelegate {
-    func tracingLocation(currentLocation: CLLocation)
-    func tracingLocationDidFailWithError(error: NSError)
+    func tracingLocation(_ currentLocation: CLLocation)
+    func tracingLocationDidFailWithError(_ error: NSError)
 }
 
-class LocationService: NSObject, CLLocationManagerDelegate {
-    
-    class var sharedInstance: LocationService {
-        struct Static {
-            static var onceToken: dispatch_once_t = 0
-            
-            static var instance: LocationService? = nil
-        }
-        dispatch_once(&Static.onceToken) {
-            Static.instance = LocationService()
-        }
-        return Static.instance!
-    }
+class LocationService: NSObject, CLLocationManagerDelegate {    
+    static let sharedInstance: LocationService = {
+        let instance = LocationService()
+        return instance
+    }()
 
     var locationManager: CLLocationManager?
     var lastLocation: CLLocation?
@@ -40,7 +32,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        if CLLocationManager.authorizationStatus() == .NotDetermined {
+        if CLLocationManager.authorizationStatus() == .notDetermined {
             // you have 2 choice 
             // 1. requestAlwaysAuthorization
             // 2. requestWhenInUseAuthorization
@@ -63,7 +55,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }
     
     // CLLocationManagerDelegate
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 
         guard let location = locations.last else {
             return
@@ -76,14 +68,14 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         updateLocation(location)
     }
     
-    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         
         // do on error
-        updateLocationDidFailWithError(error)
+        updateLocationDidFailWithError(error as NSError)
     }
     
     // Private function
-    private func updateLocation(currentLocation: CLLocation){
+    fileprivate func updateLocation(_ currentLocation: CLLocation){
 
         guard let delegate = self.delegate else {
             return
@@ -92,7 +84,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         delegate.tracingLocation(currentLocation)
     }
     
-    private func updateLocationDidFailWithError(error: NSError) {
+    fileprivate func updateLocationDidFailWithError(_ error: NSError) {
         
         guard let delegate = self.delegate else {
             return

@@ -27,16 +27,16 @@ class ViewController: UIViewController, LocationServiceDelegate {
     }
 
     // MARK: Action
-    @IBAction func startButtonTapped(sender: AnyObject) {
+    @IBAction func startButtonTapped(_ sender: AnyObject) {
         LocationService.sharedInstance.startUpdatingLocation()
     }
     
-    @IBAction func stopButtonTapped(sender: AnyObject) {
+    @IBAction func stopButtonTapped(_ sender: AnyObject) {
         LocationService.sharedInstance.stopUpdatingLocation()
     }
     
     // MARK: LocationService Delegate
-    func tracingLocation(currentLocation: CLLocation) {
+    func tracingLocation(_ currentLocation: CLLocation) {
         let lat = currentLocation.coordinate.latitude
         let lon = currentLocation.coordinate.longitude
         
@@ -44,7 +44,7 @@ class ViewController: UIViewController, LocationServiceDelegate {
         lonLabel.text = "lon : \(lon)"
     }
     
-    func tracingLocationDidFailWithError(error: NSError) {
+    func tracingLocationDidFailWithError(_ error: NSError) {
         print("tracing Location Error : \(error.description)")
     }
 
