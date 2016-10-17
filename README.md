@@ -3,6 +3,9 @@ Simply to share location services.
 Example Singleton class use for share location service in swift.
 This class will auto update location when user change current location.
 
+## Updated for Swift 3
+[Swift 3 Version](https://github.com/igroomgrim/CLLocationManager-Singleton-in-Swift/tree/swift-3)
+
 ## Requirements
 * Xcode 7 or higher
 * Swift 2.0+
