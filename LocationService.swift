@@ -21,7 +21,7 @@ class LocationService: NSObject, CLLocationManagerDelegate {
     }()
 
     var locationManager: CLLocationManager?
-    var lastLocation: CLLocation?
+    var currentLocation: CLLocation?
     var delegate: LocationServiceDelegate?
 
     override init() {
@@ -61,8 +61,8 @@ class LocationService: NSObject, CLLocationManagerDelegate {
             return
         }
         
-        // singleton for get last location
-        self.lastLocation = location
+        // singleton for get last(current) location
+        currentLocation = location
         
         // use for real time update location
         updateLocation(location)
